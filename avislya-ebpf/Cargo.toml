@@ -1,0 +1,17 @@
+[package]
+name = "avislya-ebpf"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+aya-ebpf = { workspace = true }
+aya-log-ebpf = { workspace = true }
+
+network-types = "0.1.0"
+
+[build-dependencies]
+which = { workspace = true }
+
+[[bin]]
+name = "avislya"
+path = "src/main.rs"
