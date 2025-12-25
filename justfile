@@ -4,4 +4,4 @@ iface := `find /sys/class/net -mindepth 1 -maxdepth 1 -lname '*virtual*' -prune 
 log_lvl := "debug"
 
 run:
-  RUST_LOG={{log_lvl}} cargo run --locked --config 'target."cfg(all())".runner="sudo -E"' -- --iface {{iface}} "$@"
+  RUST_LOG={{log_lvl}} cargo run --locked --release --config 'target."cfg(all())".runner="sudo -E"' -- --iface {{iface}} "$@"

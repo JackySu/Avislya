@@ -9,7 +9,7 @@ ARGS = $(filter-out $@,$(MAKECMDGOALS))
 r: run
 
 run:
-	RUST_LOG=$(LOG_LVL) cargo run --locked --config 'target."cfg(all())".runner="sudo -E"' -- --iface $(IFACE) $(ARGS)
+	RUST_LOG=$(LOG_LVL) cargo run --locked --release --config 'target."cfg(all())".runner="sudo -E"' -- --iface $(IFACE) $(ARGS)
 
 # Prevent make from treating extra args as targets
 %:
