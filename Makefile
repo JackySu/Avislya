@@ -13,10 +13,10 @@ check-bpf-linker:
 	@command -v bpf-linker >/dev/null 2>&1 || { echo "bpf-linker not found, installing with cargo ..."; cargo install bpf-linker --locked; }
 
 check-iface:
-	@IFACE_COUNT=$$(echo "$(IFACE)" | wc -l); \
+	@IFACE_COUNT=$$(echo "$(IFACE)" | wc -w); \
 	if [ "$$IFACE_COUNT" -gt 1 ]; then \
 		echo "Multiple network interfaces found:"; \
-		echo "$(IFACE)"; \
+		echo "$(IFACE)" | tr ' ' '\n'; \
 		echo ""; \
 		echo "Please specify interface with: make IFACE=<interface> run"; \
 		exit 1; \

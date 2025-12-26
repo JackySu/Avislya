@@ -1,3 +1,6 @@
+default:
+  @just run
+
 alias r := run
 
 # `just iface=xxx run`
